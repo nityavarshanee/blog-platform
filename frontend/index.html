@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Platform – Home</title>
+  <meta name="description" content="A sleek black‑and‑purple blog platform. Browse posts, sign up, and comment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo"><a href="index.html">🖤🟣 Blog Platform</a></h1>
+    <nav class="nav-links" id="nav-links">
+      <a href="login.html" id="nav-login">Login</a>
+      <a href="signup.html" id="nav-signup">Sign Up</a>
+      <a href="create.html" id="nav-create" style="display:none;">Create Post</a>
+      <a href="#" id="nav-logout" style="display:none;">Logout</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="posts-section">
+      <h2>Recent Posts</h2>
+      <div id="posts-list" class="cards"></div>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/post.js"></script>
+  <script>
+    // Load navigation state based on token
+    document.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        document.getElementById('nav-login').style.display = 'none';
+        document.getElementById('nav-signup').style.display = 'none';
+        document.getElementById('nav-create').style.display = 'inline-block';
+        document.getElementById('nav-logout').style.display = 'inline-block';
+      }
+      document.getElementById('nav-logout').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        location.reload();
+      });
+    });
+  </script>
+</body>
+</html>

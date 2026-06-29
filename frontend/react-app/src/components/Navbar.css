@@ -1,0 +1,44 @@
+/* Navbar styling - black & purple theme */
+
+header.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1a001a, #2d0b4b);
+  padding: 0.5rem 2rem;
+  color: #f5f5f5;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e0b3ff;
+}
+
+.nav-links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #c0c0c0;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #e0b3ff;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  header.navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .nav-links a {
+    margin: 0.5rem 0;
+  }
+}

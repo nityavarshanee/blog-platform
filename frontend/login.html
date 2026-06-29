@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – Blog Platform</title>
+  <meta name="description" content="Login to the blog platform to create posts and comment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo"><a href="index.html">🖤🟣 Blog Platform</a></h1>
+    <nav class="nav-links">
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="auth-section">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+      <p id="login-message" class="message"></p>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

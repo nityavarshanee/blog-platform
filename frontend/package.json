@@ -1,0 +1,11 @@
+{
+  "name": "blog-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for blog platform",
+  "scripts": {
+    "dev": "live-server --open=."
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

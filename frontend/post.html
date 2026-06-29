@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post – Blog Platform</title>
+  <meta name="description" content="View a blog post and its comments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo"><a href="index.html">🖤🟣 Blog Platform</a></h1>
+    <nav class="nav-links" id="nav-links">
+      <a href="login.html" id="nav-login">Login</a>
+      <a href="signup.html" id="nav-signup">Sign Up</a>
+      <a href="#" id="nav-logout" style="display:none;">Logout</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="post-section">
+      <h2 id="post-title">Loading...</h2>
+      <p id="post-author"></p>
+      <article id="post-content"></article>
+
+      <hr />
+
+      <h3>Comments</h3>
+      <div id="comment-list" class="comment-list"></div>
+
+      <form id="comment-form" style="margin-top:1rem;">
+        <textarea id="comment-text" rows="3" placeholder="Add a comment..." required style="width:100%;"></textarea>
+        <button type="submit" class="btn-primary" style="margin-top:0.5rem;">Post Comment</button>
+      </form>
+      <p id="comment-message" class="message"></p>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/post.js"></script>
+  <script>
+    // Navigation state (same logic as index.html)
+    document.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        document.getElementById('nav-login').style.display = 'none';
+        document.getElementById('nav-signup').style.display = 'none';
+        document.getElementById('nav-logout').style.display = 'inline-block';
+      }
+      document.getElementById('nav-logout').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        location.reload();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – BlogHub</title>
+  <meta name="description" content="Learn more about BlogHub, the premium black‑and‑purple blogging platform." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo"><a href="index.html">BlogHub</a></h1>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="latest.html">Latest Blogs</a>
+      <a href="about.html">About</a>
+      <a href="login.html" id="nav-login">Login</a>
+      <a href="signup.html" id="nav-register">Register</a>
+      <a href="dashboard.html" id="nav-dashboard" style="display:none;">Dashboard</a>
+      <a href="#" id="nav-logout" style="display:none;">Logout</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="about-section">
+      <h2>About BlogHub</h2>
+      <p>BlogHub is a modern, premium blogging platform designed with a sleek black and vibrant purple theme. It provides a seamless experience for creators to write, share, and engage with readers.</p>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    // Navigation state (same as index)
+    document.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        document.getElementById('nav-login').style.display = 'none';
+        document.getElementById('nav-register').style.display = 'none';
+        document.getElementById('nav-dashboard').style.display = 'inline-block';
+        document.getElementById('nav-logout').style.display = 'inline-block';
+      }
+      document.getElementById('nav-logout').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        location.reload();
+      });
+    });
+  </script>
+</body>
+</html>
